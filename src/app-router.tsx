@@ -8,7 +8,11 @@ export const appRouter = createBrowserRouter(
   [
     {
       children: [
-        { element: <Navigate replace to="/wallet" />, index: true },
+        { element: <Navigate replace to="/hatchlink" />, index: true },
+        {
+          lazy: () => import('@/features/hatchlink/feature/hatchlink-feature-entry'),
+          path: 'hatchlink',
+        },
         {
           lazy: () => import('@/about/feature/about-feature'),
           path: 'about',
@@ -31,6 +35,11 @@ export const appRouter = createBrowserRouter(
                 title: 'Wallet',
                 to: '/wallet',
               },
+              {
+                description: 'Open the HatchLink companion drop claim and verifier.',
+                title: 'HatchLink',
+                to: '/hatchlink',
+              },
             ],
           }),
           path: '*',
@@ -39,6 +48,7 @@ export const appRouter = createBrowserRouter(
       element: (
         <ShellFeature
           links={[
+            { label: 'HatchLink', to: '/hatchlink' },
             { label: 'Wallet', to: '/wallet' },
             { label: 'About', to: '/about' },
           ]}

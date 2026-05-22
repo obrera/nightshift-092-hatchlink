@@ -22,7 +22,7 @@ const ThemeProviderContext = React.createContext<ThemeProviderState | undefined>
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'system',
+  defaultTheme = 'dark',
   disableTransitionOnChange = true,
   storageKey = 'theme',
   ...props
